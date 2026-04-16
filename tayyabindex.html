@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syed Tayyab | Official Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --accent-blue: #00d2ff;
+            --main-white: #ffffff;
+            --dark-bg: #050505;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--main-white);
+            overflow-x: hidden;
+        }
+
+        /* --- Full Screen Background Image --- */
+        .hero-bg {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(5,5,5,1)), 
+                        url('PXL_20260110_111438433.PORTRAIT.jpg'); /* Background Image */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            animation: fadeInDown 1.5s ease;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            color: var(--accent-blue);
+            font-weight: 300;
+            animation: fadeInUp 1.5s ease;
+        }
+
+        /* --- Profile Section --- */
+        .profile-section {
+            padding: 100px 10%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-img {
+            flex: 1;
+            min-width: 300px;
+            max-width: 450px;
+            border-radius: 30px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            transform: rotate(-3deg);
+            transition: 0.5s;
+        }
+
+        .profile-img:hover {
+            transform: rotate(0deg) scale(1.02);
+            border-color: var(--accent-blue);
+        }
+
+        .profile-img img { width: 100%; display: block; }
+
+        .profile-info { flex: 1; min-width: 300px; }
+        .profile-info h2 { font-size: 3rem; margin-bottom: 20px; }
+        .profile-info p { line-height: 1.8; color: #aaa; margin-bottom: 20px; font-size: 1.1rem; }
+
+        /* --- Lifestyle Cards --- */
+        .lifestyle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 50px 10%;
+        }
+
+        .life-card {
+            background: rgba(255,255,255,0.03);
+            padding: 40px;
+            border-radius: 25px;
+            border: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+            transition: 0.4s;
+        }
+
+        .life-card:hover {
+            background: rgba(0, 210, 255, 0.05);
+            border-color: var(--accent-blue);
+            transform: translateY(-10px);
+        }
+
+        .life-card i { font-size: 2.5rem; color: var(--accent-blue); margin-bottom: 20px; }
+
+        /* --- Photo Feed --- */
+        .feed { padding: 80px 5%; text-align: center; }
+        .feed h2 { margin-bottom: 40px; font-size: 2.5rem; }
+        .masonry {
+            column-count: 3;
+            column-gap: 20px;
+        }
+        .masonry img {
+            width: 100%;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+        .masonry img:hover { filter: brightness(1.2); transform: scale(1.02); }
+
+        /* --- Social Links --- */
+        .social-footer {
+            padding: 100px 10%;
+            text-align: center;
+            background: linear-gradient(to top, #001a20, var(--dark-bg));
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .social-icons a {
+            width: 70px; height: 70px;
+            background: rgba(255,255,255,0.05);
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%;
+            font-size: 24px;
+            color: white;
+            text-decoration: none;
+            transition: 0.4s;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .social-icons a:hover {
+            background: var(--accent-blue);
+            color: black;
+            transform: scale(1.2) rotate(360deg);
+        }
+
+        /* --- WhatsApp Float --- */
+        .wa-btn {
+            position: fixed; bottom: 30px; right: 30px;
+            background: #25d366; color: white;
+            width: 60px; height: 60px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 30px; text-decoration: none; z-index: 1000;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 900px) {
+            .masonry { column-count: 2; }
+            .profile-section { padding: 50px 5%; }
+        }
+        @media (max-width: 600px) {
+            .masonry { column-count: 1; }
+            .hero-text h1 { font-size: 3.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero-bg">
+        <div class="hero-text">
+            <p>WELCOME TO THE WORLD OF</p>
+            <h1>SYED TAYYAB RAZA</h1>
+        </div>
+    </div>
+
+    <section class="profile-section">
+        <div class="profile-img">
+            <img src="c:\Users\ASAD\Pictures\Camera Roll\af31d33a-c1e7-42e6-bed1-39adeada2518.jpg">
+        </div>
+        <div class="profile-info">
+            <h2>About Me</h2>
+            <p>I am <b>Syed Tayyab Raza</b>, a student and a creative mind from Pakistan. I believe in living life to the fullest and capturing moments that matter. My journey is a blend of technology, creativity, and constant learning.</p>
+            <p>Beyond the books, I am a <b>Web Developer</b> by passion and a <b>YouTuber</b> by heart. I love exploring new aesthetics, creating digital art, and connecting with people who share the same vibe.</p>
+        </div>
+    </section>
+
+    <div class="lifestyle-grid">
+        <div class="life-card">
+            <i class="fas fa-camera-retro"></i>
+            <h3>Creator</h3>
+            <p>Sharing my life and thoughts through the lens of my camera on YouTube.</p>
+        </div>
+        <div class="life-card">
+            <i class="fas fa-laptop-code"></i>
+            <h3>Tech Enthusiast</h3>
+            <p>Building modern web interfaces and exploring the future of AI.</p>
+        </div>
+        <div class="life-card">
+            <i class="fas fa-user-graduate"></i>
+            <h3>Student</h3>
+            <p>Navigating through the academic world while building a personal brand.</p>
+        </div>
+    </div>
+
+    <section class="feed">
+        <h2>Moments</h2>
+        <div class="masonry">
+            <img src="c:\Users\ASAD\Pictures\google pixel\PXL_20260205_080946525.PORTRAIT.jpg" alt="Moment 1">
+            <img src="c:\Users\ASAD\Pictures\google pixel\PXL_20260205_080523718.PORTRAIT.jpg" alt="Moment 2">
+            <img src="c:\Users\ASAD\Pictures\google pixel\PXL_20260208_084848151.PORTRAIT~2.jpg" alt="Moment 3">
+            <img src="c:\Users\ASAD\Pictures\google pixel\PXL_20260213_093001099.PORTRAIT.jpg" alt="Moment 4">
+            <img src="c:\Users\ASAD\Pictures\Camera Roll\83b5a2c5-0ecd-45bb-a6cb-61b9d1eee745.jpg" alt="Moment 5">
+            <img src="c:\Users\ASAD\Pictures\Camera Roll\b3f57226-793b-4b13-a52e-50709c074209.jpg" alt="Moment 6">
+<img src="c:\Users\ASAD\Pictures\google pixel\PXL_20260220_090249987.PORTRAIT.jpg" alt="Moment 7">
+<img src="c:\Users\ASAD\Pictures\google pixel\Snapchat-1207969132.jpg" alt="Moment 8">
+            <img src="c:\Users\ASAD\Pictures\google pixel\PXL_20260130_092439426.PORTRAIT.jpg" alt="Moment 9">
+        </div>
+    </section>
+
+    <section class="social-footer">
+        <h2>Follow My Journey</h2>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/syedx5911" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@syedxtayyab" title="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://youtube.com/@strxvlog?si=w20WZqb_ZAfnodtH" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://wa.me/923040935831" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            
+        </div>
+        <p style="margin-top: 50px; opacity: 0.5;">Designed for Syed Tayyab Raza| 2026</p>
+    </section>
+
+    <a href="https://wa.me/923040935831" class="wa-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
